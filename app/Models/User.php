@@ -6,15 +6,49 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory;
-    // use SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'username',
+        'password',
+        'nama',
+        'ktp',
+        'foto',
+        'role',
+        'no_telp',
+        'email',
+        'status',
+    ];
+
     protected $table = "user";
     protected $primaryKey = "user_id";
     public $incrementing = true;
     public $timestamps = true;
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
 
     public function memiliki_tenant(){
         return $this->hasMany('App\Models\Tenant', 'user_id', 'user_id');

@@ -10,8 +10,6 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-5 text-center mx-auto">
                         <h1 class="text-white mb-2 mt-5">Welcome!</h1>
-                        <p class="text-lead text-white">Use these awesome forms to login or create new account in your
-                            project for free.</p>
                     </div>
                 </div>
             </div>
@@ -96,6 +94,11 @@
                                     <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password">
                                     @error('password') <p class='text-danger text-xs pt-1'> {{ $message }} </p> @enderror
                                 </div>
+                                <div class="flex flex-col mb-3">
+                                    <input type="radio" name="user_role" id="tenant" value="2"> I am Tenant
+                                    <br>
+                                    <input type="radio" name="user_role" id="anak_kost" value="3"> I am Anak Kost
+                                </div>                           
                                 <div class="form-check form-check-info text-start">
                                     <input class="form-check-input" type="checkbox" name="terms" id="flexCheckDefault" >
                                     <label class="form-check-label" for="flexCheckDefault">
@@ -117,4 +120,23 @@
         </div>
     </main>
     @include('layouts.footers.guest.footer')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var tenantRadio = document.getElementById('tenant');
+            var anakKostRadio = document.getElementById('anak_kost');
+
+            tenantRadio.addEventListener('change', function () {
+                updateUserRole('tenant');
+            });
+
+            anakKostRadio.addEventListener('change', function () {
+                updateUserRole('anak_kost');
+            });
+
+            function updateUserRole(role) {
+                var roleInput = document.getElementById('user_role');
+                roleInput.value = role;
+            }
+        });
+    </script>
 @endsection

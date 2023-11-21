@@ -18,7 +18,7 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:5|max:255',
             'terms' => 'required',
-            'user_role' => 'required|in:2,3', 
+            'user_role' => 'required|in:1,2', 
         ]);
 
         $attributes['password'] = bcrypt($attributes['password']); 
@@ -29,7 +29,7 @@ class RegisterController extends Controller
 
         $user = User::create($attributes);
 
-        auth()->login($user);
+        // auth()->login($user);
 
         return redirect()->route('login');
     }

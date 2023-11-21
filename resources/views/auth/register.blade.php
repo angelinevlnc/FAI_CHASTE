@@ -97,7 +97,7 @@
                                 <div class="flex flex-col mb-3">
                                     <input type="radio" name="user_role" id="tenant" value="2"> I am Tenant
                                     <br>
-                                    <input type="radio" name="user_role" id="anak_kost" value="3"> I am Anak Kost
+                                    {{-- <input type="radio" name="user_role" id="anak_kost" value="3"> I am Anak Kost --}}
                                 </div>                           
                                 <div class="form-check form-check-info text-start">
                                     <input class="form-check-input" type="checkbox" name="terms" id="flexCheckDefault" >

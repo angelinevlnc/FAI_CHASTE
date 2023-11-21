@@ -25,4 +25,8 @@ class HomeController extends Controller
     {
         return view('pages.dashboard');
     }
+    public function showtenant()
+    {
+        return view('pages.hlmnTenant');
+    }
 }

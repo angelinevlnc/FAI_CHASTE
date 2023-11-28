@@ -12,9 +12,12 @@ class MenuController extends Controller
             'name' => 'required|max:255|min:2',
             'price' => 'required',
             'kategori' => 'required|max:255',
-            'terms' => 'required',
             'description' => 'required',
         ]);
-        $menu = Menu::create($attributes);
+        $user = auth()->user();
+        if ($user) {
+            $attributes['user_id'] = $user->id;
+            $menu = Menu::create($attributes);
+        };
     }
 }

@@ -9,25 +9,32 @@
                     <div class="card-header pb-0">
                         <h1></h1>
                         <h6>Add Menu</h6>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Insert Food Picture</label>
-                            <input class="form-control" type="file" id="formFile">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Name</label>
-                            <input class="form-control" type="text" id="">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Price</label>
-                            <input class="form-control" type="text" id="">
-                        </div>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="floatingTextarea2">Description</label>
-                        </div>
-                        <div class="mb-3 my-3">
-                            <button class="btn btn-primary">Submit</button>
-                        </div>
+                        <form action="/insertmenu" method="post">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Insert Food Picture</label>
+                                <input class="form-control" type="file" id="formFile" name="foodpic">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input class="form-control" type="text" id="" name="name">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Price</label>
+                                <input class="form-control" type="text" id="" name="price">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Kategori</label>
+                                <input class="form-control" type="text" id="" name="kategori">
+                            </div>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="description"></textarea>
+                                <label for="floatingTextarea2">Description</label>
+                            </div>
+                            <div class="mb-3 my-3">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

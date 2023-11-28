@@ -23,7 +23,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
-use App\Http\Controllers\ChangePassword;            
+use App\Http\Controllers\ChangePassword;
+use App\Http\Controllers\MenuController;            
             
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
@@ -37,6 +38,7 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
 	Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
 	Route::get('/hlmnTenant', [HomeController::class, 'showtenant'])->name('showtenant')->middleware('auth');
+	Route::post('/insertmenu', [MenuController::class, 'insertmenu'])->name('insertmenu');
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');

@@ -7,6 +7,7 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
+                        <h1></h1>
                         <h6>Add Tenant</h6>
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Insert Stand Picture</label>

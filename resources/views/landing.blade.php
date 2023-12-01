@@ -314,61 +314,29 @@
         </div>
         <!-- End Col -->
 
-        <div class="space-y-6 lg:space-y-10">
+        <!-- Start FoodController -->
+        <div class="space-y-6 lg:space-y-10"> 
+          @foreach ($listTenant as $tenant)
             <!-- Icon Block -->
             <div class="flex">
             <!-- Icon -->
             <span class="flex-shrink-0 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border border-gray-200 bg-white text-gray-800 shadow-sm mx-auto">
-                <img src="drink.jpg" alt="">
+                <img src="{{ Storage::url("$tenant->foto") }}" alt="">
             </span>
             <div class="ms-5 sm:ms-8">
                 <h3 class="text-base sm:text-lg font-semibold text-gray-800">
-                Chaste Drink
+                  {{ $tenant->nama }}
                 </h3>
                 <p class="mt-1 text-gray-600">
-                    Refreshing beverage that combines natural ingredients to provide a pure and invigorating taste, perfect for those seeking a delightful and wholesome drink experience.
+                  {{ $tenant->deskripsi }}
                 </p>
             </div>
             </div>
             <!-- End Icon Block -->
-
-            <!-- Icon Block -->
-            <div class="flex">
-            <!-- Icon -->
-            <span class="flex-shrink-0 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border border-gray-200 bg-white text-gray-800 shadow-sm mx-auto">
-                <img src="bakso.jpg" alt="">
-            </span>
-            <div class="ms-5 sm:ms-8">
-                <h3 class="text-base sm:text-lg font-semibold text-gray-800">
-                Bakso Bu Gaby
-                </h3>
-                <p class="mt-1 text-gray-600">
-                    Bakso Bu Gaby offers a delightful culinary experience with its signature meatball soup, showcasing a perfect blend of flavors and textures that captures the essence of Indonesian comfort food.
-                </p>
-            </div>
-            </div>
-            <!-- End Icon Block -->
-
-            <!-- Icon Block -->
-            <div class="flex">
-            <!-- Icon -->
-            <span class="flex-shrink-0 inline-flex justify-center items-center w-[46px] h-[46px] rounded-full border border-gray-200 bg-white text-gray-800 shadow-sm mx-auto">
-                <img src="pawon.png" alt="">
-
-            </span>
-            <div class="ms-5 sm:ms-8">
-                <h3 class="text-base sm:text-lg font-semibold text-gray-800">
-                Pawon CK
-                </h3>
-                <p class="mt-1 text-gray-600">
-                    Changing its menu daily, Pawon CK is a unique tenant that adds excitement to your dining experience ensuring a diverse and fresh selection of dishes for customers to savor.
-                From boarding passes to movie tickets, there's pretty much nothing you can't store with Preline.
-                </p>
-            </div>
-            </div>
-            <!-- End Icon Block -->
-        </div>
+          @endforeach
+        </div> 
         <!-- End Col -->
+        <!-- End FoodController -->
         </div>
         <!-- End Grid -->
     </div>

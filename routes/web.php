@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FoodController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('landing');
-});
+Route::get('/', [FoodController::class, 'getLanding']);
 
 
 Route::get('/kos', function () {
@@ -31,9 +30,7 @@ Route::get('/kos-invoice', function () {
     return view('kos-invoice');
 });
 
-Route::get('/food', function () {
-    return view('food');
-});
+Route::get('/food', [FoodController::class, 'getFood']);
 
 Route::get('/food-payment', function () {
     return view('food-payment');
